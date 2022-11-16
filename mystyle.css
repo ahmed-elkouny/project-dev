@@ -1,0 +1,57 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+h1{
+
+    border-radius: 6mm;
+    border-color:saddlebrown ;
+    border-style:dotted;
+    display: flex;
+    justify-content: center;
+    color:darkgoldenrod ;
+    font-family:cursive;
+    margin: 50px;
+
+
+}
+section{
+
+    font-size: 40px;
+}
+.parent{
+
+    display:flex;
+    justify-content: space-around;
+
+}
+div img{
+    height: 200px;
+    width: 21%;
+    border-radius: 2mm;
+    border: 1px solid #888;
+    margin-left: 50px;
+    
+}
+
+@media(max-width: 350px){
+   
+    .parent{
+
+       display: flex;
+       flex-direction:column;
+      
+       
+
+    }
+    div img {
+        border: 5px solid red;
+        
+        justify-content: space-between;
+        
+        
+        
+
+    }
+}

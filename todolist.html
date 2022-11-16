@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arrays</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body,
+    html {
+      height: 100%;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    .form_group {
+      padding: 15px;
+      border: 1px solid #aaa;
+
+      background-color: #eee;
+      box-shadow: 2px 2px 3px #9999;
+      margin: 10px;
+
+      display: flex;
+    }
+
+    .form_group * {
+      margin-right: 5px;
+      flex: 1;
+    }
+
+    .form_group label {
+      align-self: center;
+    }
+
+    .form_group input[type="button"] {
+      border: none;
+      padding: 10px;
+      background-color: darkcyan;
+      box-shadow: 2px 2px 3px #9999;
+      border-radius: 5px;
+      color: #fff;
+      font-weight: 900;
+    }
+
+    #todo_list {
+      list-style: none;
+      padding: 5px;
+      
+    }
+     
+    #todo_list p {
+      padding: 10px 5px;
+      border: 2px solid rgb(9, 143, 143);
+      margin-bottom: 5px;
+    }
+      
+    #msg {
+      color: tomato;
+      padding: 15px;
+      font-weight: 800;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>My To Do List</h1>
+  <div class="form_group">
+    <label for="task">Task</label>
+    <input type="text" id="task" onkeyup="key_pressed(event)" />
+    <input type="button" value="Add" onclick="add_item()"/>
+  </div>
+
+  <p id="msg"></p>
+   
+  <div id="todo_list"></div>
+      
+  <script>
+    const task_input = document.querySelector("#task");
+    const todo_list = document.querySelector("#todo_list");
+    const msg = document.querySelector("#msg");
+
+    let my_todos_arr = [];
+    console.log(my_todos_arr)
+
+    const mytodos_json = localStorage.getItem('mytodos');
+
+    // Check if the key (mytodos) is exists in the localstorage
+
+    my_todos_arr = mytodos_json == null ? [] : JSON.parse(mytodos_json)
+
+ 
+    /*
+    Pay Internet Bill
+    Revise HTML Course
+    Revise CSS Course
+    Study Last Lecture of JS
+    Watch a Short Tutorial About Today's Topic
+    Solve Today's Task
+    */
+
+    my_todos_arr.forEach(appendItem);
+
+
+    let new_task;
+    let selected_item = "";
+    function add_item() {
+      // Clear error Message
+      msg.innerHTML = "";
+
+      // Get new task from the user input
+      new_task = task_input.value.trim();
+
+
+
+      // Checks if the item is in the array
+      my_todos_arr.includes(new_task)
+        ? (msg.innerHTML = "Item already in the list")
+        
+        : update_list();
+    }
+
+    function update_list() {
+      // Clear list
+      todo_list.innerHTML = "";
+
+      // Add to the array
+      my_todos_arr.push(new_task.trim());
+
+      // Update localstorage with new items
+      save_todos();
+
+
+      // loop the array and creates the new list
+      my_todos_arr.forEach(appendItem);
+
+      // Clear added task from the input
+
+      task_input.value = '';
+
+      // Set focus on task_input
+
+      task_input.focus();
+    }
+
+    function save_todos() {
+    //   // Convert the array to JSON String
+      const json_todos = JSON.stringify(my_todos_arr);
+
+      // Add to localstorage
+      localStorage.setItem('mytodos', json_todos);
+    }
+    function appendItem(task) {
+      todo_list.innerHTML += `<p onclick='remove_me(this);'>${task}</p>`;
+    }
+
+    function remove_me(elm) {
+      selected_item = elm.innerText;
+
+      // Removes the item from the array
+      console.log(my_todos_arr);
+      my_todos_arr = my_todos_arr.filter(handle_item); //Callback function
+
+      // Update localstorage with new items
+      save_todos();
+
+
+      // Clear list
+      todo_list.innerHTML = "";
+
+      // loop the array and creates the new list
+      for (let i = 0; i < my_todos_arr.length; i++) {
+        todo_list.innerHTML += `<p onclick='remove_me(this);'>${my_todos_arr[i]}</p>`;
+      }
+    }
+
+    function handle_item(item) {
+      return item !== selected_item;
+    }
+
+
+    function key_pressed(e) {
+
+
+      if (e.key === "Enter") {
+
+        add_item();
+      }
+       
+
+      // console.log(e.key)
+
+      // if the pressed key is Enter, fire add_item() function
+      // add_item()
+
+    }
+  </script>
+</body>
+
+</html>

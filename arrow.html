@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        html{
+            background-color: black;
+            color: darkcyan;
+        }
+        #btn{
+
+            padding: 10px;
+            border-radius: 2em;
+            background-color: transparent;
+            color: darkgreen;
+            border-color: darkgreen;
+            border-bottom-color: darkcyan;
+            border-right-color: darkgoldenrod;
+        
+        }       
+    </style>
+</head>
+<body>
+    
+<button id="btn">Click Me!</button>
+
+<p id="demo"></p>
+
+<button id="btn" onclick="document.getElementById('demo').innerHTML =Date()">this time is ?</button>
+<p id="demo"></p>
+
+
+<p>Click the button to display the date.</p>
+
+<button id="btn" onclick="displayDate()">The time is?</button>
+
+<script>
+
+    let hunt ="";
+    hunt = () => {
+
+        document.getElementById("demo").innerHTML += this;
+    }
+    window.addEventListener("load",fun);
+    document.getElementById("btn").addEventListener("click",fun);
+
+    
+    
+
+function displayDate() {
+  document.getElementById("demo").innerHTML = Date();
+}
+
+
+
+</script>
+</body>
+</html>

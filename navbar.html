@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>navbar</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body, html{
+        background-color: rgb(141, 141, 141);
+        /* scroll-behavior: smooth; */
+      }
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 20px;
+        box-shadow: 4px 4px 3px #aaa;
+        background-color: #000;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+      }
+      .list {
+        /* justify-content: center; */
+        /* align-items: center; */
+        display: flex;
+        align-self: center;
+      }
+      .list ul {
+        display: flex;
+        /* justify-content: end; */
+        gap: 15px;
+        list-style: none;
+        position: relative;
+
+        /* transform: translateY(25%); */
+      }
+      .list ul li a {
+        text-decoration: none;
+        color: beige;
+      }
+      .bars {
+        display: none;
+        cursor: pointer;
+        margin-right: 5px;
+      }
+
+      .bar1,
+      .bar2,
+      .bar3 {
+        width: 35px;
+        height: 5px;
+        background-color: rgb(133, 133, 133);
+        margin: 6px 0;
+        transition: 0.4s;
+      }
+
+      .change .bar1 {
+        transform: translate(0, 11px) rotate(-45deg);
+      }
+
+      .change .bar2 {
+        opacity: 0;
+      }
+
+      .change .bar3 {
+        transform: translate(0, -11px) rotate(45deg);
+      }
+
+      .container {
+        width: 90%;
+        padding-left: 10px;
+        padding-right: 10px;
+        /* margin-top: 5rem; */
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .container .content{
+        background-color: #fff;
+        padding: 10px;
+        border-radius: 5px;
+        margin-top: 60px;
+      }
+
+      .container .content .content_body {
+        
+      }
+
+      @media (max-width: 415px) {
+        ul li {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="brand">
+        <img src="/imgs/facebook.png" width="30" alt="" />
+      </div>
+
+      <div class="list">
+        <ul>
+          <li><a href="#i">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact us</a></li>
+        </ul>
+      </div>
+
+      <div class="bars" onclick="myFunction(this)">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="content">
+        <h3 class="title">title</h3>
+        <p class="content_body">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi,
+        quisquam laboriosam placeat libero quos ex natus rem earum harum atque
+        accusamus deleniti? Quasi, ab sequi nihil necessitatibus aut culpa
+        aliquid? Quas quasi repudiandae quisquam hic corporis sequi magnam
+        dolores labore cupiditate aspernatur, similique, in repellat debitis
+        vero. Est dicta eius delectus doloribus sunt placeat qui, commodi quam!
+        Obcaecati, aspernatur ipsa! Unde, sequi corrupti illo et aliquam saepe,
+        sint commodi doloremque sed dolorem quisquam nobis neque cupiditate
+        praesentium, repellendus odio in nam soluta perspiciatis officia quas?
+        Pariatur omnis praesentium delectus. Ea? Officia iure magnam quod
+        commodi voluptates omnis repellat reiciendis vel? Incidunt odit
+        doloribus saepe aut architecto. Expedita beatae quos odit magnam
+        doloribus itaque quod, omnis eligendi, aspernatur nesciunt laudantium
+        est. Autem sequi, fugit labore laborum distinctio et velit minima,
+        maiores ullam quos sit quaerat nam laboriosam, inventore ipsa culpa?
+        Doloribus molestiae voluptatibus minus possimus dicta laudantium
+        reprehenderit, culpa in repudiandae! Aperiam ducimus rem laudantium
+        temporibus fugit, necessitatibus animi! Ut maxime fuga suscipit illo
+        laborum. Hic fuga sed eos error aspernatur, temporibus ex expedita
+        veniam, sapiente suscipit sunt ipsa laborum fugiat. Beatae odit nesciunt
+        non, fuga vel eveniet ipsam, provident, laboriosam quas esse impedit
+        quidem dignissimos pariatur tenetur! Perferendis, aliquid et fugit ex
+        alias nostrum quibusdam iure recusandae animi maiores nam? Natus
+        corporis molestiae, quo nisi alias eligendi architecto nesciunt totam
+        deserunt nulla, exercitationem tempore iusto voluptatem, sint tempora?
+        Quod accusamus perspiciatis, ut vitae molestiae a exercitationem
+        perferendis incidunt soluta reprehenderit! Et, accusantium. Illum fugiat
+        tempora aspernatur quas sapiente labore similique aliquam obcaecati,
+        esse sed magnam distinctio vel, modi pariatur atque quia totam odio
+        perspiciatis impedit magni maxime. Culpa, quibusdam quam? Nam veniam
+        rem, illum incidunt suscipit cum ipsum numquam provident est amet alias
+        nobis, deleniti facere quod voluptate voluptates quasi quaerat accusamus
+        corrupti minima. Sapiente, illum laudantium. Ipsum, facere? Molestias.
+        Deserunt magnam veritatis perspiciatis eius perferendis molestiae.
+        Veritatis sapiente expedita fugit numquam, tempore doloremque dolores
+        est omnis ullam quis facere? Optio necessitatibus nisi consectetur nemo
+        ex dicta repudiandae iusto ratione! Nemo odio iusto vero nisi eveniet
+        fuga voluptas maxime illo assumenda quaerat consectetur asperiores
+        dolore omnis earum sapiente iure ipsum ab amet atque consequatur,
+        dolorum rem debitis? Sed, totam sequi! Sunt sit veniam eligendi
+        consectetur eaque quisquam, mollitia numquam blanditiis maxime tempora
+        est magni aperiam dolorem! Laboriosam sequi ipsa, perferendis ullam
+        aliquam, minima ex voluptas eveniet totam saepe odit amet! Doloribus
+        enim cupiditate modi animi maxime quo suscipit sunt, quam eligendi quos,
+        voluptate natus, voluptatum architecto blanditiis nulla iste cum magnam
+        commodi et consequuntur culpa. Similique veniam error minus debitis?
+        Autem maxime incidunt enim nisi ab facilis mollitia eum, explicabo  
+        ducimus tempore dolorem ipsa alias sequi quod qui ad laborum dolorum id
+        pariatur et, dolor perferendis! Nulla asperiores natus facilis. Mollitia
+        sed praesentium inventore sunt nobis dolorum voluptatem, sequi officiis
+        commodi quasi tempora maiores nisi placeat blanditiis minus repudiandae
+    asi quas. Id distinctio <span id="i" style="color:blue;"> b </span> ex quas doloremque
+        illo. Quia facilis aut labore sit alias ipsam assumenda!
+      </p></div>
+    </div>
+
+    <script>
+      function myFunction(x) {
+        x.classList.toggle("change");
+      }
+    </script>
+  </body>
+</html>
